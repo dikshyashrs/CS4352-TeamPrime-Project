@@ -64,7 +64,7 @@ export default function Home() {
          Review Order <ArrowRightIcon className="w-4 h-4 text-white" />
 
           </Button> 
-          <Button  onClick={()=>{clearCart;toast.success("Order cleared")}} className=" flex-1 hover:bg-rose-500 hover:shadow-lg hover:font-bold bg-rose-500 text-white px-4 py-2 rounded-md flex items-center gap-2 w-full text-center justify-center cursor-pointer hover:bg-rose-600 transition-all duration-300">
+          <Button  onClick={()=>{clearCart();toast.success("Order cleared")}} className=" flex-1 hover:bg-rose-500 hover:shadow-lg hover:font-bold bg-rose-500 text-white px-4 py-2 rounded-md flex items-center gap-2 w-full text-center justify-center cursor-pointer hover:bg-rose-600 transition-all duration-300">
             Clear Order
           </Button>
           </div>
