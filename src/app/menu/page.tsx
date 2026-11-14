@@ -91,7 +91,7 @@ export default function Home() {
           </div>
 
           <div className="flex w-full gap-3">
-            <Button className="h-16 flex-3 gap-2 text-xl font-bold cursor-pointer">
+            <Button onPress={() => navigate("/order")} className="h-16 flex-3 gap-2 text-xl font-bold cursor-pointer">
               Review Order <ArrowRightIcon className="size-6" />
             </Button>
             <Button
