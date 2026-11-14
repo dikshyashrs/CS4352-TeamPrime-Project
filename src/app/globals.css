@@ -39,6 +39,14 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-cta-hover: var(--cta-hover);
+  --color-accent-text: var(--accent-text);
+  --color-eyebrow: var(--eyebrow);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -49,24 +57,24 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background:#EBEBE0;
+  --foreground: #0B3D1E; 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: #0B4A24;
+  --primary-foreground: #FFFFFF;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: #52525B;
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: #1D4ED8;                  /* high-contrast focus ring */
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -81,6 +89,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --cta: #C2410C;                   /* Call for Assistance, white text ~5.2:1 */
+  --cta-hover: #9A3412;
+  --cta-foreground: #FFFFFF;
+  --accent-text: #C2410C;           /* "simple"-style highlight words: large text only (~4.3:1 on cream) */
+  --eyebrow: #9A3412;               /* small uppercase eyebrow labels (~6:1) */
+  --gold: #F4B650;
+  --gold-hover: #E9A23B;
+  --gold-foreground: #0B3D1E;
 }
 
 .dark {
@@ -127,4 +143,14 @@
   html {
     @apply font-sans;
   }
+}
+
+/*
+ * Visible focus ring for keyboard and switch-device users.
+ * Unlayered on purpose so it wins over `outline-none` utilities in components.
+ */
+:focus-visible,
+[data-focus-visible] {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
 }
