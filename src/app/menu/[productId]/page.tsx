@@ -21,7 +21,7 @@ export default  function Page() {
 
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-300 font-sans dark:bg-black">
+    <div className="flex flex-col flex-1 items-center justify-center bg-background font-sans dark:bg-black">
       <main className=" rounded-lg flex flex-1 w-full my-8 max-w-4xl flex-col items-center justify-between pt-8 pb-16 px-16 bg-white dark:bg-black sm:items-start gap-4 text-center">
       <h1 className="text-4xl font-bold text-left justify-left w-full">{productName}</h1>
 
@@ -40,8 +40,13 @@ export default  function Page() {
 
           {/* DESCRIPTION */}
 
-          <div className="w-full h-full flex items-center justify-center">
-        {productData ? <p>{productData.description}</p> : <p>Product not found</p>}        
+          <div className="w-full h-full flex flex-col items-start justify-center gap-4 text-left">
+        {productData ? (
+          <>
+            <p className="text-3xl font-bold">${productData.price.toFixed(2)}</p>
+            <p className="text-xl text-muted-foreground">{productData.description}</p>
+          </>
+        ) : <p className="text-xl">Product not found</p>}
 
             
         </div>
@@ -61,8 +66,8 @@ export default  function Page() {
   
    
                   
-        <Button onClick={()=>{addToCart(productData); navigate(`/menu`);console.log("ADDED T CART",productData), toast.success("Added to cart")}} className="hover:bg-rose-500 hover:shadow-lg hover:font-bold bg-rose-500 text-white px-4 py-2 rounded-md flex items-center gap-2 w-full text-center justify-center cursor-pointer hover:bg-rose-600 transition-all duration-300">
-         Add <ArrowRightIcon className="w-4 h-4 text-white" />
+        <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/menu`); toast.success("Added to cart")}} className="h-16 w-full gap-2 text-xl font-bold cursor-pointer">
+         Add to order <ArrowRightIcon className="size-6" />
 
           </Button> 
       </main>

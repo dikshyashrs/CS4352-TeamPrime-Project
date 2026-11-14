@@ -16,6 +16,7 @@ import {
   CircleCheck,
   CircleQuestionMark,
   Nut,
+  X,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -42,7 +43,7 @@ export function AssistanceButton() {
   return (
     <DialogTrigger isOpen={open} onOpenChange={handleOpenChange}>
       <Button
-        className="fixed top-6 right-6 z-40 h-16 gap-3 px-6 text-lg font-bold bg-rose-500 text-white shadow-lg hover:bg-rose-600 cursor-pointer"
+        className="fixed top-6 right-6 z-40 h-16 gap-3 px-6 text-xl font-bold bg-cta text-cta-foreground shadow-lg hover:bg-cta-hover cursor-pointer"
       >
         <BellRing className="size-6" />
         Call for assistance
@@ -75,7 +76,7 @@ export function AssistanceButton() {
                       Cancel request
                     </Button>
                     <Button
-                      className="h-16 flex-1 text-xl bg-rose-500 text-white hover:bg-rose-600 cursor-pointer"
+                      className="h-16 flex-1 text-xl font-bold cursor-pointer"
                       onPress={close}
                     >
                       Done
@@ -85,9 +86,18 @@ export function AssistanceButton() {
               ) : (
                 /* CHOICES */
                 <>
-                  <Heading slot="title" className="text-3xl font-bold">
-                    How can we help?
-                  </Heading>
+                  <div className="flex items-center justify-between gap-4">
+                    <Heading slot="title" className="text-3xl font-bold">
+                      How can we help?
+                    </Heading>
+                    <Button
+                      onPress={close}
+                      className="h-14 shrink-0 gap-2 px-5 text-xl font-bold cursor-pointer"
+                    >
+                      <X className="size-7" strokeWidth={3} />
+                      Close
+                    </Button>
+                  </div>
                   <div className="flex flex-col gap-3">
                     {OPTIONS.map((option) => (
                       <Button
@@ -101,13 +111,6 @@ export function AssistanceButton() {
                       </Button>
                     ))}
                   </div>
-                  <Button
-                    variant="ghost"
-                    onPress={close}
-                    className="h-14 text-lg cursor-pointer"
-                  >
-                    Close
-                  </Button>
                 </>
               )
             }
