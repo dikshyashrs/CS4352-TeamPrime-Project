@@ -1,4 +1,14 @@
 "use client";
+/**
+ * REVIEW ORDER & CHECKOUT  (route: /order)
+ * Opens from the "Review Order and Checkout" button on the menu. Lists everything in the order
+ * (identical items are grouped into one row; customized versions get their own row
+ * showing the chosen options), with -/+ buttons to change quantities and the total.
+ * "Checkout" opens a popup with two payment options:
+ *   - "Pay with card in kiosk"
+ *   - "Pay with an employee"
+ * Choosing one shows a confirmation; "Done" clears the order and returns to the welcome screen.
+ */
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";

@@ -1,4 +1,16 @@
 "use client";
+/**
+ * MENU (route: /menu)
+ *
+ * Shows every menu item, grouped into category tabs (Mains, Sides, Drinks, Desserts).
+ * Each item card can be:
+ *   - tapped to open its product page (/menu/[productId]) with the full description
+ *   - added straight to the order with the gold "+" button
+ *   - customized with the "Customize" button (only items that have options, see src/data/menu.ts)
+ * The green "Your order" box shows the item count and running total, followed by
+ * buttons to review the order (/order) or clear it.
+ * Menu data lives in src/data/menu.ts; the order (cart) lives in src/stores/userCartStore.ts.
+ */
 
 import { ArrowRightIcon, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";

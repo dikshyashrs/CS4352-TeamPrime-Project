@@ -1,4 +1,13 @@
 "use client";
+/**
+ * PRODUCT PAGE  (route: /menu/[productId])
+ *
+ * Opens when a customer taps an item card on the menu. Shows the item's photo,
+ * price and full description, with buttons to:
+ *   - "Add to order" (adds the standard item and returns to /menu)
+ *   - "Customize" (only for items with options; opens the same popup as on the menu)
+ * [productId] is the item's name from the URL; it is looked up in src/data/menu.ts.
+ */
 import Image from "next/image";
 import { ForkKnifeIcon, ArrowRightIcon, ShoppingCart, SlidersHorizontal,Hamburger,Salad,GlassWater,Cake} from "lucide-react";
 import { Button } from "@/components/ui/button";

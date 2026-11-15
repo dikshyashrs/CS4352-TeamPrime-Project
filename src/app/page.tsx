@@ -1,4 +1,9 @@
 "use client"
+/**
+ * WELCOME SCREEN
+ * The first screen customers see on the kiosk. Explains the three steps
+ * (Menu -> Customize -> Checkout) and has a "Browse Menu" button that opens /menu.
+ */
 import Image from "next/image";
 import { ForkKnifeIcon, ArrowRightIcon, ShoppingCart, SlidersHorizontal} from "lucide-react";
 import { useRouter } from "next/navigation";
