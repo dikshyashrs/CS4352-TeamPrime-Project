@@ -44,6 +44,9 @@ export const categories = [
   const Onions = noYes("Onions", "/customize/onions.png");
   const lettuce = yesNo("Lettuce", "/customize/lettuce.png");
   const tomato = yesNo("Tomato", "/customize/tomato.png");
+  const chicken = noYes("Chicken", "/customize/chicken.png");
+  const dippingSauce = noYes("Dipping Sauce", "/customize/dipping sauce.png");
+  const frenchFries = noYes("French Fries", "/customize/french fries.png");
 
   const burgerOptions = [patties, mushrooms, extraCheese, pickles, Onions];
 
@@ -55,12 +58,12 @@ export const categories = [
         // Comes with two patties and pickles as standard
         options: [{...patties, choices: [{label:"Two"}, {label:"Three", price:1.00}]}, mushrooms, extraCheese, {...pickles, defaultChoice: 1}, Onions]},
       {name:"Grilled Chicken Sandwich", price:11.00, description: "Grilled chicken breast, lettuce, and tomato on a soft bun", image: "/menu/chickensandwich.png",
-        options: [extraCheese, lettuce, tomato, pickles]},
+        options: [chicken, extraCheese, lettuce, tomato, pickles]},
       {name:"Crispy Chicken Plate", price:13.50, description: "Crispy chicken with fries and dipping sauce", image: "/menu/crispychicken.png",
         options: [
           { name:"Chicken Pieces", choices: [{label:"Two"}, {label:"Three", price:3.00}] },
-          { name:"Dipping Sauce", choices: [{label:"None"}, {label:"Honey Mustard", price:0.50}, {label:"Gravy", price:0.75}] },
-          yesNo("French Fries"),
+          dippingSauce,
+          frenchFries,
         ]},
       {name:"Veggie Burger", price:10.50, description: "Plant-based patty, lettuce, tomato, and onions on a soft bun", image: "/menu/vegburger.png",
         options: [mushrooms, extraCheese, pickles, Onions]},
