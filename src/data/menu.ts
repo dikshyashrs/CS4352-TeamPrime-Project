@@ -1,3 +1,13 @@
+/**
+ * MENU DATA
+ * Edit this file to change the menu.
+ *   - `categories`  the tabs on the menu page and their icons
+ *   - `foodItems`   the items in each category: name, price, description,
+ *                   photo (`image`, a file in /public/menu), and
+ *                   customization `options` (any item with options gets a "Customize" button)
+ * The option groups (Patties, Extra Cheese, ...) are defined once below and reused
+ * across items. Their photos are in /public/customize.
+ */
 import { Hamburger, Salad, GlassWater, Cake } from "lucide-react";
 export const categories = [
     {name:"Mains",icon:Hamburger},

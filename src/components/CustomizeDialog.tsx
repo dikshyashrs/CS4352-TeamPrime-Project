@@ -1,4 +1,13 @@
 "use client";
+/**
+ * CUSTOMIZE BUTTON + POPUP
+ * The "Customize" button and the popup it opens, used on menu cards and product pages.
+ * For each option group of the item (Patties, Mushrooms) it shows a photo,
+ * a label and pill buttons. The customer picks one choice per group, and the
+ * standard choice starts out selected. The price updates as choices change, and
+ * "Add to order" adds the item with its choices to the order.
+ * Option groups and prices come from src/data/menu.ts.
+ */
 
 import { useState } from "react";
 import {

@@ -1,3 +1,11 @@
+/**
+ * ROOT LAYOUT  (wraps every page)
+ * Sets up what all screens share: the fonts (Figtree for body text, Playfair Display
+ * for serif headings), the global styles and colors in globals.css, the
+ * "Call for assistance" button pinned to the top-right corner, and the pop-up
+ * toast messages (e.g. "Added to cart") shown at the top of the screen.
+ * Each page's content is rendered where {children} appears below.
+ */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Figtree, Playfair_Display } from "next/font/google";
 import "./globals.css";

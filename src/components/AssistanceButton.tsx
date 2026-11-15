@@ -1,4 +1,11 @@
 "use client";
+/**
+ * CALL FOR ASSISTANCE BUTTON + POPUP
+ * The orange button pinned to the top-right of every screen (added in app/layout.tsx).
+ * It opens a popup where the customer picks what they need help with (payment,
+ * water refill, order, food allergies, something else). It then shows a
+ * "Help is on the way!" confirmation, which they can cancel.
+ */
 
 import { useState } from "react";
 import {
