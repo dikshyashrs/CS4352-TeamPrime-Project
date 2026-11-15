@@ -1,4 +1,16 @@
 "use client";
+/**
+ * MENU (route: /menu)
+ *
+ * Shows every menu item, grouped into category tabs (Mains, Sides, Drinks, Desserts).
+ * Each item card can be:
+ *   - tapped to open its product page (/menu/[productId]) with the full description
+ *   - added straight to the order with the gold "+" button
+ *   - customized with the "Customize" button (only items that have options, see src/data/menu.ts)
+ * The green "Your order" box shows the item count and running total, followed by
+ * buttons to review the order (/order) or clear it.
+ * Menu data lives in src/data/menu.ts; the order (cart) lives in src/stores/userCartStore.ts.
+ */
 
 import { ArrowRightIcon, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +20,7 @@ import { useRouter } from "next/navigation";
 import { categories, foodItems } from "@/data/menu";
 import { useUserCartStore } from "@/stores/userCartStore";
 import { toast } from "sonner";
+import { CustomizeDialog } from "@/components/CustomizeDialog";
 
 const formatPrice = (n: number) => `$${n.toFixed(2)}`;
 
@@ -56,20 +69,30 @@ export default function Home() {
               <button
                 type="button"
                 onClick={()=>{navigate(`/menu/${encodeURIComponent(item.name)}`)}}
-                className="flex flex-1 flex-col gap-3 rounded-2xl p-4 pb-24 text-left cursor-pointer"
+                className={`flex flex-1 flex-col gap-3 rounded-2xl p-4 text-left cursor-pointer ${item.options ? "pb-40" : "pb-24"}`}
               >
-                <Skeleton className="w-full h-48 bg-zinc-300 dark:bg-zinc-800" />
+                {item.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.image} alt={item.name} className="w-full h-48 rounded-xl object-cover" />
+                ) : (
+                  <Skeleton className="w-full h-48 bg-zinc-300 dark:bg-zinc-800" />
+                )}
                 <h3 className="text-2xl font-bold text-foreground animate-in fade-in slide-in-from-bottom-2 duration-200">{item.name}</h3>
                 <p className="text-xl font-normal text-muted-foreground line-clamp-2">{item.description}</p>
               </button>
+              {/* Customize sits above the price row, outside the card button (buttons can't be nested) */}
+              {item.options && (
+                <CustomizeDialog item={item} className="absolute inset-x-4 bottom-24" />
+              )}
               <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between">
                 <p className="text-2xl font-bold text-foreground">{formatPrice(item.price)}</p>
                 <Button
                   aria-label={`Add ${item.name} to order`}
                   onPress={()=>{addToCart(item); toast.success(`${item.name} added`)}}
-                  className="pointer-events-auto size-16 rounded-full bg-gold text-gold-foreground shadow-md hover:bg-gold-hover cursor-pointer"
+                  className="pointer-events-auto h-16 gap-2 rounded-full px-4 text-lg font-bold bg-gold text-gold-foreground shadow-md hover:bg-gold-hover cursor-pointer"
                 >
-                  <Plus className="size-8" strokeWidth={3} />
+                  <Plus className="size-5" strokeWidth={3} />
+                  Add to order
                 </Button>
               </div>
             </div>

@@ -1,11 +1,21 @@
+/**
+ * ROOT LAYOUT  (wraps every page)
+ * Sets up what all screens share: the fonts (Figtree for body text, Playfair Display
+ * for serif headings), the global styles and colors in globals.css, the
+ * "Call for assistance" button pinned to the top-right corner, and the pop-up
+ * toast messages (e.g. "Added to cart") shown at the top of the screen.
+ * Each page's content is rendered where {children} appears below.
+ */
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Figtree } from "next/font/google";
+import { Geist, Geist_Mono, Figtree, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { AssistanceButton } from "@/components/AssistanceButton";
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
+// Serif for headings only (use the `font-serif` class); body text stays sans-serif
+const playfair = Playfair_Display({subsets:['latin'],weight:['700'],variable:'--font-playfair'});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", figtree.variable)}
+      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", figtree.variable, playfair.variable)}
     >
       <body className="min-h-full flex flex-col">
         {children}

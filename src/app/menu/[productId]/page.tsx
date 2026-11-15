@@ -1,4 +1,13 @@
 "use client";
+/**
+ * PRODUCT PAGE  (route: /menu/[productId])
+ *
+ * Opens when a customer taps an item card on the menu. Shows the item's photo,
+ * price and full description, with buttons to:
+ *   - "Add to order" (adds the standard item and returns to /menu)
+ *   - "Customize" (only for items with options; opens the same popup as on the menu)
+ * [productId] is the item's name from the URL; it is looked up in src/data/menu.ts.
+ */
 import Image from "next/image";
 import { ForkKnifeIcon, ArrowRightIcon, ShoppingCart, SlidersHorizontal,Hamburger,Salad,GlassWater,Cake} from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +16,7 @@ import { useParams, useRouter } from "next/navigation";
 import { foodItems } from "@/data/menu";
 import { useUserCartStore } from "@/stores/userCartStore";
 import { toast } from "sonner";
+import { CustomizeDialog } from "@/components/CustomizeDialog";
 import { useEffect } from "react";
 export default  function Page() {
   const { productId} = useParams();
@@ -31,7 +41,12 @@ export default  function Page() {
         
         {/* IMAGE */}
             <div>
-        <Skeleton className="w-full h-96 bg-zinc-400 dark:bg-zinc-800" />
+        {productData?.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={productData.image} alt={productName} className="w-full h-96 rounded-xl object-cover" />
+        ) : (
+          <Skeleton className="w-full h-96 bg-zinc-400 dark:bg-zinc-800" />
+        )}
               
           </div>
 
@@ -66,10 +81,15 @@ export default  function Page() {
   
    
                   
-        <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/menu`); toast.success("Added to cart")}} className="h-16 w-full gap-2 text-xl font-bold cursor-pointer">
-         Add to order <ArrowRightIcon className="size-6" />
-
-          </Button> 
+        <div className="flex w-full gap-3">
+          {/* Only items with options (the mains) can be customized */}
+          {productData?.options && (
+            <CustomizeDialog item={productData} onAdded={() => navigate(`/menu`)} className="h-16 flex-1" />
+          )}
+          <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/menu`); toast.success("Added to cart")}} className="h-16 flex-2 gap-2 text-xl font-bold cursor-pointer">
+           Add to order <ArrowRightIcon className="size-6" />
+          </Button>
+        </div>
       </main>
     </div>
   );
