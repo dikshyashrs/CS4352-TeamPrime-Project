@@ -17,7 +17,7 @@ import { foodItems } from "@/data/menu";
 import { useUserCartStore } from "@/stores/userCartStore";
 import { toast } from "sonner";
 import { CustomizeDialog } from "@/components/CustomizeDialog";
-import { useEffect } from "react";
+
 export default  function Page() {
   const { productId} = useParams();
   const productName = decodeURIComponent(productId as any);
@@ -25,6 +25,7 @@ export default  function Page() {
   const flatFoodItems = Object.values(foodItems).flatMap((item)=> item);
   const productData:any = flatFoodItems.find((item)=> item.name === productName);
   const { addToCart } = useUserCartStore();
+
   function navigate(path: any) {
     router.push(path);
   }
@@ -90,6 +91,7 @@ export default  function Page() {
            Add to order <ArrowRightIcon className="size-6" />
           </Button>
         </div>
+
       </main>
     </div>
   );

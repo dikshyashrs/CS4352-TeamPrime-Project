@@ -22,15 +22,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-type Option = { id: string; label: string; icon: LucideIcon };
-
-const OPTIONS: Option[] = [
-  { id: "checkout", label: "Help with payment", icon: CreditCard },
-  { id: "water", label: "Request water refill", icon: GlassWater },
-  { id: "order", label: "Help with order", icon: ClipboardList },
-  { id: "allergies", label: "Food allergies", icon: Nut },
-  { id: "miscellaneous", label: "Something else", icon: CircleQuestionMark },
-];
 
 export function KioskTutorialButton() {
   const [open, setOpen] = useState(false);

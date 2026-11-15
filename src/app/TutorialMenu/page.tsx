@@ -136,8 +136,7 @@ export default function Home() {
           {isOpen && (
               <div
                   // Clicking the backdrop triggers the close function
-                  onClick={()=>{navigate(`/menu/${encodeURIComponent("Classic Cheeseburger")}`)}}
-                  onClick={()=>{navigate("/CustomizationTutorial")}}
+                  onClick={()=>{navigate(`/CustomizationTutorial/${encodeURIComponent("Classic Cheeseburger")}`)}}
                   className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
               >
                   <div
