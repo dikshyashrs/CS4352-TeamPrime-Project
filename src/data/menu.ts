@@ -44,7 +44,7 @@ export const categories = [
   const Onions = noYes("Onions", "/customize/onions.png");
   const lettuce = yesNo("Lettuce", "/customize/lettuce.png");
   const tomato = yesNo("Tomato", "/customize/tomato.png");
-  const chicken = noYes("Chicken", "/customize/chicken.png");
+  const chickenPieces = noYes("Chicken pieces", "/customize/chicken pieces.png");
   const dippingSauce = noYes("Dipping Sauce", "/customize/dipping sauce.png");
   const frenchFries = noYes("French Fries", "/customize/french fries.png");
 
@@ -58,10 +58,10 @@ export const categories = [
         // Comes with two patties and pickles as standard
         options: [{...patties, choices: [{label:"Two"}, {label:"Three", price:1.00}]}, mushrooms, extraCheese, {...pickles, defaultChoice: 1}, Onions]},
       {name:"Grilled Chicken Sandwich", price:11.00, description: "Grilled chicken breast, lettuce, and tomato on a soft bun", image: "/menu/chickensandwich.png",
-        options: [chicken, extraCheese, lettuce, tomato, pickles]},
+        options: [chickenPieces, extraCheese, lettuce, tomato, pickles]},
       {name:"Crispy Chicken Plate", price:13.50, description: "Crispy chicken with fries and dipping sauce", image: "/menu/crispychicken.png",
         options: [
-          { name:"Chicken Pieces", choices: [{label:"Two"}, {label:"Three", price:3.00}] },
+          chickenPieces,
           dippingSauce,
           frenchFries,
         ]},
