@@ -31,7 +31,12 @@ export default  function Page() {
         
         {/* IMAGE */}
             <div>
-        <Skeleton className="w-full h-96 bg-zinc-400 dark:bg-zinc-800" />
+        {productData?.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={productData.image} alt={productName} className="w-full h-96 rounded-xl object-cover" />
+        ) : (
+          <Skeleton className="w-full h-96 bg-zinc-400 dark:bg-zinc-800" />
+        )}
               
           </div>
 

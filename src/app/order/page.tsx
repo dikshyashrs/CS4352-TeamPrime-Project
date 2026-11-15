@@ -65,11 +65,13 @@ export default function OrderPage() {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [payment, setPayment] = useState<PaymentOption | null>(null);
 
-  // Group duplicate items into one row with a quantity
+  // Group duplicate items into one row with a quantity.
+  // Customized items carry a `key` (name + choices), so different customizations get their own rows.
   const lines = Object.values(
-    cart.reduce<Record<string, { item: any; qty: number }>>((acc, item) => {
-      acc[item.name] ??= { item, qty: 0 };
-      acc[item.name].qty += 1;
+    cart.reduce<Record<string, { key: string; item: any; qty: number }>>((acc, item) => {
+      const key = item.key ?? item.name;
+      acc[key] ??= { key, item, qty: 0 };
+      acc[key].qty += 1;
       return acc;
     }, {})
   );
@@ -110,17 +112,22 @@ export default function OrderPage() {
           <>
             {/* ITEMS */}
             <ul className="flex flex-col divide-y-2 divide-border rounded-2xl border-2 border-border">
-              {lines.map(({ item, qty }) => (
-                <li key={item.name} className="flex items-center gap-4 p-5">
+              {lines.map(({ key, item, qty }) => (
+                <li key={key} className="flex items-center gap-4 p-5">
                   <div className="flex flex-1 flex-col gap-1">
                     <p className="text-2xl font-bold">{item.name}</p>
+                    {item.selections?.map((s: { group: string; label: string; price: number }) => (
+                      <p key={s.group} className="text-xl text-foreground">
+                        {s.group}: {s.label}{s.price > 0 && ` (+${formatPrice(s.price)})`}
+                      </p>
+                    ))}
                     <p className="text-xl text-muted-foreground">{formatPrice(item.price)} each</p>
                   </div>
 
                   <div className="flex items-center gap-3">
                     <Button
                       aria-label={qty === 1 ? `Remove ${item.name}` : `Remove one ${item.name}`}
-                      onPress={() => removeOne(item.name)}
+                      onPress={() => removeOne(key)}
                       className="size-14 rounded-full border-2 border-primary bg-white text-primary hover:bg-primary/10 cursor-pointer"
                     >
                       <Minus className="size-7" strokeWidth={3} />

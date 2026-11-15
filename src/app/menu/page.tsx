@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { categories, foodItems } from "@/data/menu";
 import { useUserCartStore } from "@/stores/userCartStore";
 import { toast } from "sonner";
+import { CustomizeDialog } from "@/components/CustomizeDialog";
 
 const formatPrice = (n: number) => `$${n.toFixed(2)}`;
 
@@ -56,12 +57,21 @@ export default function Home() {
               <button
                 type="button"
                 onClick={()=>{navigate(`/menu/${encodeURIComponent(item.name)}`)}}
-                className="flex flex-1 flex-col gap-3 rounded-2xl p-4 pb-24 text-left cursor-pointer"
+                className={`flex flex-1 flex-col gap-3 rounded-2xl p-4 text-left cursor-pointer ${item.options ? "pb-40" : "pb-24"}`}
               >
-                <Skeleton className="w-full h-48 bg-zinc-300 dark:bg-zinc-800" />
+                {item.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.image} alt={item.name} className="w-full h-48 rounded-xl object-cover" />
+                ) : (
+                  <Skeleton className="w-full h-48 bg-zinc-300 dark:bg-zinc-800" />
+                )}
                 <h3 className="text-2xl font-bold text-foreground animate-in fade-in slide-in-from-bottom-2 duration-200">{item.name}</h3>
                 <p className="text-xl font-normal text-muted-foreground line-clamp-2">{item.description}</p>
               </button>
+              {/* Customize sits above the price row, outside the card button (buttons can't be nested) */}
+              {item.options && (
+                <CustomizeDialog item={item} className="absolute inset-x-4 bottom-24" />
+              )}
               <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between">
                 <p className="text-2xl font-bold text-foreground">{formatPrice(item.price)}</p>
                 <Button
