@@ -30,7 +30,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-2 w-1/3"><ShoppingCart className="w-12 h-12" />
           <span className="text-xl font-semibold">Checkout</span></div>
         </div>
-        <Button onPress={navigateToMenu} className="h-16 w-full gap-2 text-xl font-bold cursor-pointer">
+          <Button onPress={navigateToMenu} className="h-16 w-full gap-2 text-xl font-bold cursor-pointer">
          Browse Menu <ArrowRightIcon className="size-6" />
 
           </Button>         
