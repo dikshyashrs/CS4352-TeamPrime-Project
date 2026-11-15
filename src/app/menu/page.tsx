@@ -89,9 +89,10 @@ export default function Home() {
                 <Button
                   aria-label={`Add ${item.name} to order`}
                   onPress={()=>{addToCart(item); toast.success(`${item.name} added`)}}
-                  className="pointer-events-auto size-16 rounded-full bg-gold text-gold-foreground shadow-md hover:bg-gold-hover cursor-pointer"
+                  className="pointer-events-auto h-16 gap-2 rounded-full px-4 text-lg font-bold bg-gold text-gold-foreground shadow-md hover:bg-gold-hover cursor-pointer"
                 >
-                  <Plus className="size-8" strokeWidth={3} />
+                  <Plus className="size-5" strokeWidth={3} />
+                  Add to order
                 </Button>
               </div>
             </div>
