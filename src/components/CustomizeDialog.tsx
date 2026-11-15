@@ -37,7 +37,15 @@ function GroupImage({ src }: { src?: string }) {
   );
 }
 
-export function CustomizeDialog({ item, className }: { item: MenuItem; className?: string }) {
+export function CustomizeDialog({
+  item,
+  className,
+  onAdded,
+}: {
+  item: MenuItem;
+  className?: string;
+  onAdded?: () => void; // called after the customized item is added (e.g. go back to the menu)
+}) {
   const { addToCart } = useUserCartStore();
   const groups = item.options ?? [];
 
@@ -70,6 +78,7 @@ export function CustomizeDialog({ item, className }: { item: MenuItem; className
     });
     toast.success(`${item.name} added`);
     handleOpenChange(false);
+    onAdded?.();
   }
 
   return (

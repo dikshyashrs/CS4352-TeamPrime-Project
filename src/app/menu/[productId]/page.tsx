@@ -7,6 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import { foodItems } from "@/data/menu";
 import { useUserCartStore } from "@/stores/userCartStore";
 import { toast } from "sonner";
+import { CustomizeDialog } from "@/components/CustomizeDialog";
 import { useEffect } from "react";
 export default  function Page() {
   const { productId} = useParams();
@@ -71,10 +72,15 @@ export default  function Page() {
   
    
                   
-        <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/menu`); toast.success("Added to cart")}} className="h-16 w-full gap-2 text-xl font-bold cursor-pointer">
-         Add to order <ArrowRightIcon className="size-6" />
-
-          </Button> 
+        <div className="flex w-full gap-3">
+          {/* Only items with options (the mains) can be customized */}
+          {productData?.options && (
+            <CustomizeDialog item={productData} onAdded={() => navigate(`/menu`)} className="h-16 flex-1" />
+          )}
+          <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/menu`); toast.success("Added to cart")}} className="h-16 flex-2 gap-2 text-xl font-bold cursor-pointer">
+           Add to order <ArrowRightIcon className="size-6" />
+          </Button>
+        </div>
       </main>
     </div>
   );
