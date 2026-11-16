@@ -12,7 +12,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { AssistanceButton } from "@/components/AssistanceButton";
-
+import { KioskTutorialButton } from "@/components/KioskTutorialButton";
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 // Serif for headings only (use the `font-serif` class); body text stays sans-serif
 const playfair = Playfair_Display({subsets:['latin'],weight:['700'],variable:'--font-playfair'});
@@ -41,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         {children}
         <AssistanceButton/>
+        <KioskTutorialButton/>
         <Toaster position="top-center" richColors duration={2000} />
         </body>
     </html>
