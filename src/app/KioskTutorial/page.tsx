@@ -1,10 +1,8 @@
 "use client"
 /**
- * TUTORIAL (route: /KioskTutorial)
+ * TUTORIAL START (route: /KioskTutorial)
  *
- * WELCOME SCREEN
- * The first screen customers see on the kiosk. Explains the three steps
- * (Menu -> Customize -> Checkout) and has a "Browse Menu" button that opens /menu.
+ * Welcome screen but with tutorial popup explaining how to use it.
  */
 import Image from "next/image";
 import { ForkKnifeIcon, ArrowRightIcon, ShoppingCart, SlidersHorizontal} from "lucide-react";

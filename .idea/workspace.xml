@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31bce958-76d6-478c-a088-130a55a5f84b" name="Changes" comment="" />
+    <list default="true" id="31bce958-76d6-478c-a088-130a55a5f84b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/CheckoutMenuTutorial/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/CheckoutTutorial/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/FinishTutorial/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/CustomizationTutorial/[productId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/CustomizationTutorial/[productId]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/KioskTutorial/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/KioskTutorial/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/TutorialMenu/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/TutorialMenu/page.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,11 +35,11 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "customize-menu",
+    "git-widget-placeholder": "KioskTutorial",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/micha/OneDrive/Documents/GitHub/CS4352-TeamPrime-Project/src/app/CustomizationTutorial/[productId]",
+    "last_opened_file_path": "C:/Users/micha/OneDrive/Documents/GitHub/CS4352-TeamPrime-Project/src/app/FinishTutorial",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -42,11 +50,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\FinishTutorial" />
+      <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\CheckoutMenuTutorial" />
+      <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\CheckoutTutorial" />
       <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\CustomizationTutorial\[productId]" />
       <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\CustomizationTutorial" />
-      <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\components" />
-      <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\TutorialMenu" />
-      <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\micha\OneDrive\Documents\GitHub\CS4352-TeamPrime-Project\src\app\KioskTutorial" />
@@ -77,13 +85,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="316275f1-8e52-4df4-b064-d6d58c9a4488" name="Changes" comment="" />
+      <changelist id="31bce958-76d6-478c-a088-130a55a5f84b" name="Changes" comment="" />
       <created>1794714244289</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1794714244289</updated>
       <workItem from="1794714245943" duration="633000" />
       <workItem from="1794715140453" duration="5802000" />
+      <workItem from="1794799169567" duration="1424000" />
     </task>
     <servers />
   </component>

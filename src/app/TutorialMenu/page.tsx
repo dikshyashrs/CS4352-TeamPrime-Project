@@ -1,15 +1,9 @@
 "use client";
 /**
- * MENU (route: /menu)
+ * TUTORIAL MENU (route: /TutorialMenu)
  *
- * Shows every menu item, grouped into category tabs (Mains, Sides, Drinks, Desserts).
- * Each item card can be:
- *   - tapped to open its product page (/menu/[productId]) with the full description
- *   - added straight to the order with the gold "+" button
- *   - customized with the "Customize" button (only items that have options, see src/data/menu.ts)
- * The green "Your order" box shows the item count and running total, followed by
- * buttons to review the order (/order) or clear it.
- * Menu data lives in src/data/menu.ts; the order (cart) lives in src/stores/userCartStore.ts.
+ * Identical to the regular menu but with a tutorial popup and once closed
+ * it jumps straight into customizing a classic cheeseburger so they cant order something through the tutorial.
  */
 
 import { ArrowRightIcon, Plus } from "lucide-react";
@@ -149,7 +143,7 @@ export default function Home() {
                       </Heading>
                       <p className="text-xl">
                           You can choose from Mains, Sides, Drinks or Desserts using the buttons at the top of the page, and you can add any items to your cart by clicking on the image.
-                          To start we will by ordering a Classic Cheeseburger.
+                           we will start by ordering a Classic Cheeseburger.
                       </p>
                   </div>
               </div>

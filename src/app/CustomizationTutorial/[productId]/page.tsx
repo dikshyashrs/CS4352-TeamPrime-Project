@@ -1,12 +1,9 @@
 "use client";
 /**
- * PRODUCT PAGE  (route: /menu/[productId])
+ * TUTORIAL PRODUCT PAGE  (route: /CustomizationTutorial/[productId])
  *
- * Opens when a customer taps an item card on the menu. Shows the item's photo,
- * price and full description, with buttons to:
- *   - "Add to order" (adds the standard item and returns to /menu)
- *   - "Customize" (only for items with options; opens the same popup as on the menu)
- * [productId] is the item's name from the URL; it is looked up in src/data/menu.ts.
+ * Opens after a user closes the popup on TutorialMenu, leads with a popup before letting the user customize the
+ * burger however they like. Once they add to order it leads to the CheckoutTutorial.
  */
 import Image from "next/image";
 import { ForkKnifeIcon, ArrowRightIcon, ShoppingCart, SlidersHorizontal,Hamburger,Salad,GlassWater,Cake} from "lucide-react";
@@ -92,9 +89,9 @@ export default  function Page() {
         <div className="flex w-full gap-3">
           {/* Only items with options (the mains) can be customized */}
           {productData?.options && (
-            <CustomizeDialog item={productData} onAdded={() => navigate(`/menu`)} className="h-16 flex-1" />
+            <CustomizeDialog item={productData} onAdded={() => navigate(`/CheckoutTutorial`)} className="h-16 flex-1" />
           )}
-          <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/menu`); toast.success("Added to cart")}} className="h-16 flex-2 gap-2 text-xl font-bold cursor-pointer">
+          <Button isDisabled={!productData} onPress={()=>{addToCart(productData); navigate(`/CheckoutTutorial`); toast.success("Added to cart")}} className="h-16 flex-2 gap-2 text-xl font-bold cursor-pointer">
            Add to order <ArrowRightIcon className="size-6" />
           </Button>
         </div>
