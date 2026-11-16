@@ -23,7 +23,6 @@ import {
     Dialog,
     Heading,
 } from "react-aria-components";
-import EntryModal from '@/components/TutorialModalOverlayMenu';
 import { useState } from "react";
 const formatPrice = (n: number) => `$${n.toFixed(2)}`;
 
