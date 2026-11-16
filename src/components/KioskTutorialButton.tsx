@@ -25,11 +25,9 @@ import Link from "next/link";
 
 export function KioskTutorialButton() {
   const [open, setOpen] = useState(false);
-  const [requested, setRequested] = useState<Option | null>(null);
 
   function handleOpenChange(isOpen: boolean) {
     setOpen(isOpen);
-    if (!isOpen) setRequested(null); // reset so it opens on the choices next time
   }
 
   return (

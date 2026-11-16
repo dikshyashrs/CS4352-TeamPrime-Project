@@ -26,11 +26,6 @@ import Link from "next/link";
 export default function TutorialModalOverlayMenu() {
   const [open, setOpen] = useState(true);
 
-  function handleOpenChange(isOpen: boolean) {
-    setOpen(isOpen);
-    if (!isOpen) setRequested(null); // reset so it opens on the choices next time
-  }
-
   return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" >
         <div className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-xl dark:bg-zinc-900">
